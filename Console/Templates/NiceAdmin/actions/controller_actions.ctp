@@ -157,9 +157,9 @@
  */
     public function <?php echo $admin;?>undelete($id) {
         if ($this-><?php echo $currentModelName; ?>->undelete($id)) {
-            $this->Session->setFlash(__('Provider restored'), 'NiceAdmin.alert-box', array('class' => 'alert-success'));
+            $this->Session->setFlash(__('<?php echo ucfirst(strtolower($singularHumanName)); ?> restored'), 'NiceAdmin.alert-box', array('class' => 'alert-success'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Provider could not be restored'), 'NiceAdmin.alert-box', array('class' => 'alert-error'));
+        $this->Session->setFlash(__('<?php echo ucfirst(strtolower($singularHumanName)); ?> could not be restored'), 'NiceAdmin.alert-box', array('class' => 'alert-error'));
         $this->redirect(array('action' => 'index'));
     }
