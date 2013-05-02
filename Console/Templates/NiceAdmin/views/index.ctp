@@ -44,7 +44,7 @@
 		}
 
 		echo "\t\t<td class=\"actions\">\n";
-            echo "<?php echo \$this->Actions->actions(\${$singularVar}['{$modelClass}']['{$primaryKey}'], array('e','d'));?>";
+            echo "<?php echo \$this->Actions->actions(\${$singularVar}['{$modelClass}']['{$primaryKey}'], array('e','d'));?>\n";
 		echo "\t\t</td>\n";
 	echo "\t</tr>\n";
 
