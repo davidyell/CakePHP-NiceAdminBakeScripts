@@ -17,8 +17,3 @@ Be sure to include the plugin in your `app/Config/bootstrap.php`.
 `CakePlugin::load('NiceAdminBakeScripts');` unless you are using `CakePlugin::loadAll()`   
 
 `cake bake` inside your `/app` folder. Then you can select the `NiceAdmin` theme when asked which theme you'd like to use.
-
-##TODO  
-
-* Make views aware of Behaviours such as SoftDelete to make button display conditional
-* Allow views to detect field type and automatically use the `Boolean` helper
