@@ -1,0 +1,19 @@
+{
+    "name": "davidyell/nice-admin-bake-scripts",
+    "type": "cakephp-plugin",
+    "description": "Updated bake scripts to use the davidyell/NiceAdmin helpers and also add some tags for Twitter Bootstrap 2.",
+    "homepage": "https://github.com/davidyell/CakePHP-NiceAdminBakeScripts.git",
+    "license": "GPL-3.0",
+    "authors": 
+    [
+        {
+            "name": "David Yell",
+            "email": "neon1024@gmail.com",
+            "homepage": "http://neon1024.wordpress.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "composer/installers": "*"
+    }
+}
