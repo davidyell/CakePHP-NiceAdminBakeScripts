@@ -3,9 +3,7 @@
     <?php echo "<?php echo \$this->Html->link('New', array('action'=>'add'), array('title'=>'Add new','class'=>'btn add-button'));?>\n"; ?>
 
 	<?php
-		App::uses($modelClass, 'Model');
 		$model = ClassRegistry::init($modelClass);
-
 		if (in_array('SoftDelete', $model->Behaviors->loaded())) {
 			echo "<?php echo \$this->Form->postLink(\"Purge (\$purgeable)\", array('action'=>'purge'), array('class' => 'btn btn-small btn-danger purge-button'), 'Are you sure you want to purge? This will remove records permanently!');?>\n";
 			echo "<?php echo \$this->Html->link(\"Deleted (\$deleted)\", array('action'=>'deleted'), array('title'=>\"Deleted (\$deleted)\", 'class' => 'btn btn-small btn-primary deleted-button'));?>\n";
