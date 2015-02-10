@@ -11,6 +11,8 @@ These scripts will make some assumptions about your setup, along with the plugin
 * [CakeDC/Utils](https://github.com/cakedc/utils) - SoftDeletable specifically  
 * [davidyell/NiceAdmin](https://github.com/davidyell/CakePHP-NiceAdmin) - For the helpers used in the baked views  
 
+These are included in the `composer.json`
+
 ##Usage
 Be sure to include the plugin in your `app/Config/bootstrap.php`.  
 
