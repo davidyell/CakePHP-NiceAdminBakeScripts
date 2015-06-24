@@ -15,8 +15,28 @@ The recommended way to install composer packages is:
 composer require 'davidyell/nice-admin-bake-scripts:3.0.x-dev'
 ```
 
+## Optional extra
+If you want to use Twitter Bootstrap for all your forms also you can [install the FriendsOfCake/Bootstrap-UI](https://github.com/friendsofcake/bootstrap-ui).
+
 ## Setup
 In your `src/config/bootstrap.php` you'll need to load the plugin with `Plugin::load('NiceAdminBakeTheme');`
+
+In your admin layout, you'll need to include the theme and javascript.
+
+```php
+    <?= $this->Html->css([
+        '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
+        'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css',
+        'admin'
+    ]) ?>
+    
+
+    <?= $this->Html->script([
+        '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+        '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js',
+        'admin'
+    ]);?>
+```
 
 ## Baking
 ```bash
