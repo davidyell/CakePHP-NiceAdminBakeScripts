@@ -1,21 +1,25 @@
 {
     "name": "davidyell/nice-admin-bake-scripts",
+    "description": "NiceAdminBakeTheme plugin for CakePHP",
     "type": "cakephp-plugin",
-    "description": "Updated bake scripts to use the davidyell/NiceAdmin helpers and also add some tags for Twitter Bootstrap 2.",
-    "homepage": "https://github.com/davidyell/CakePHP-NiceAdminBakeScripts.git",
     "license": "GPL-3.0",
-    "authors": 
+    "keywords": ["cakephp", "cakephp3", "bake", "theme", "admin"],
+    "authors":
     [
-        {
-            "name": "David Yell",
-            "email": "neon1024@gmail.com",
-            "homepage": "http://neon1024.wordpress.com/",
-            "role": "Developer"
-        }
+      {
+        "name": "David Yell",
+        "email": "neon1024@gmail.com",
+        "homepage": "http://jedistirfry.co.uk/",
+        "role": "Developer"
+      }
     ],
     "require": {
-        "composer/installers": "*",
-        "davidyell/nice-admin": "0.1.*",
-        "cakedc/utils": "1.4.*"
+        "php": ">=5.4.16",
+        "cakephp/cakephp": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "NiceAdminBakeTheme\\": "src"
+        }
     }
 }

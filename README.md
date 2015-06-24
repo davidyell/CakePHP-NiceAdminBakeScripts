@@ -1,21 +1,24 @@
-#CakePHP-NiceAdminBakeScripts
+# NiceAdminBakeTheme plugin for CakePHP 3
 
-My bake scripts for generating admins.
+## What is it?
+This is a theme for the CakePHP Bake plugin which will customise the templates which are generated. I've made it because 
+I don't like the default bake theme, or the fact that it outputs so many options in the actions sidebar.
 
-##Version
-This is kinda under semi-active development. I'm hoping to make them clever enough to make the components and such conditional.
+Plus I tend to use Twitter Bootstrap to make my admin areas so this theme will leverage that front-end framework.
 
-##Requirements
-These scripts will make some assumptions about your setup, along with the plugins and components that you're using.  
+## Installation
+You can install this plugin into your CakePHP application using [composer](http://getcomposer.org).
 
-* [CakeDC/Utils](https://github.com/cakedc/utils) - SoftDeletable specifically  
-* [davidyell/NiceAdmin](https://github.com/davidyell/CakePHP-NiceAdmin) - For the helpers used in the baked views  
+The recommended way to install composer packages is:
 
-These are included in the `composer.json`
+```bash
+composer require 'davidyell/nice-admin-bake-scripts:3.0.x-dev'
+```
 
-##Usage
-Be sure to include the plugin in your `app/Config/bootstrap.php`.  
+## Setup
+In your `src/config/bootstrap.php` you'll need to load the plugin with `Plugin::load('NiceAdminBakeScripts');`
 
-`CakePlugin::load('NiceAdminBakeScripts');` unless you are using `CakePlugin::loadAll()`   
-
-`cake bake` inside your `/app` folder. Then you can select the `NiceAdmin` theme when asked which theme you'd like to use.
+## Baking
+```bash
+bin/cake bake template --theme=NiceAdminBakeScripts
+```
