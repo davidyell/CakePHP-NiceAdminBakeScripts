@@ -4,8 +4,7 @@
     "type": "cakephp-plugin",
     "license": "GPL-3.0",
     "keywords": ["cakephp", "cakephp3", "bake", "theme", "admin"],
-    "authors":
-    [
+    "authors": [
       {
         "name": "David Yell",
         "email": "neon1024@gmail.com",
@@ -21,5 +20,8 @@
         "psr-4": {
             "NiceAdminBakeTheme\\": "src"
         }
+    },
+    "extra": {
+        "installer-name": "NiceAdminBakeTheme"
     }
 }

@@ -16,7 +16,7 @@ composer require 'davidyell/nice-admin-bake-scripts:3.0.x-dev'
 ```
 
 ## Setup
-In your `src/config/bootstrap.php` you'll need to load the plugin with `Plugin::load('NiceAdminBakeScripts');`
+In your `src/config/bootstrap.php` you'll need to load the plugin with `Plugin::load('NiceAdminBakeTheme');`
 
 ## Baking
 ```bash
