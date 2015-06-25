@@ -83,7 +83,7 @@ bin/cake bake template --theme=NiceAdminBakeTheme --prefix=Admin Examples
 # License
 A custom cakephp/bake theme for generating customised cakephp code and templates. 
 
-Copyright (C) <2015>  <David Yell>
+Copyright (C) 2015  David Yell
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
