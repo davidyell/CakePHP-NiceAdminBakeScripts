@@ -1,8 +1,8 @@
 # NiceAdminBakeTheme plugin for CakePHP 3
 
 ## What is it?
-This is a theme for the CakePHP Bake plugin which will customise the templates which are generated. I've made it because 
-I don't like the default bake theme, or the fact that it outputs so many options in the actions sidebar.
+This is a theme for the [CakePHP/Bake plugin](https://github.com/cakephp/bake) which will customise the code which is 
+generated. I've made it because I don't like the default bake theme, or the fact that it outputs the actions sidebar.
 
 Plus I tend to use Twitter Bootstrap to make my admin areas so this theme will leverage that front-end framework.
 
@@ -15,8 +15,15 @@ The recommended way to install composer packages is:
 composer require 'davidyell/nice-admin-bake-scripts:3.0.x-dev'
 ```
 
-## Optional extra
+## Optional extras
 If you want to use Twitter Bootstrap for all your forms also you can [install the FriendsOfCake/Bootstrap-UI](https://github.com/friendsofcake/bootstrap-ui).
+
+This can be easily coupled with the [FriendsOfCake/Crud plugin](https://github.com/friendsofcake/crud) to pretty much make
+and entire basic admin in around 5 minutes!
+
+A basic stylesheet is included to fix some minor things. You can add it to your layout 
+using `$this->Html->style('NiceAdminBakeTheme.nice-admin')`. However it's much better to symlink the stylesheet into your 
+own `webroot/css` and include it from there.
 
 ## Setup
 In your `src/config/bootstrap.php` you'll need to load the plugin with `Plugin::load('NiceAdminBakeTheme');`
@@ -39,6 +46,32 @@ In your admin layout, you'll need to include the theme and javascript.
 ```
 
 ## Baking
+The theme should be available when you are baking. You can check this by just running a bake command with `-h` and 
+checking the available themes listed in the `--theme` option help. If you don't see it make sure you've loaded the plugin 
+in your `src/config/bootstrap.php`.
+
+### Controllers
 ```bash
-bin/cake bake template --theme=NiceAdminBakeScripts
+bin/cake bake controller --theme=NiceAdminBakeTheme Examples
 ```
+
+### Templates
+```bash
+bin/cake bake template --theme=NiceAdminBakeTheme Examples
+```
+
+### Prefixed templates
+```bash
+bin/cake bake template --theme=NiceAdminBakeTheme --prefix=Admin Examples
+```
+
+## Changes to standard bake
+* Removed the `_serialize` from the controllers
+* Removed the actions sidebar from all templates
+* Formatted tables with Bootstrap
+* Added a 'New' button to the top of tables
+* Tidied up the pagination
+* Made the Actions column links into buttons
+* Added handling for date, datetime and time using the Time helper
+* Added handling for boolean data using Bootstrap icons
+* Updated the View template to use Bootstrap panels

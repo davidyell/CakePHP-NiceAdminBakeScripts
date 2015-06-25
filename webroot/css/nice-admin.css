@@ -1,3 +1,6 @@
 div.buttons {
     margin-bottom: 10px;
 }
+div.form-group.required label:after {
+    content: " *";
+}

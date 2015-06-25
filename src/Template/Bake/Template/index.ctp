@@ -40,13 +40,27 @@ $fields = collection($fields)
                 }
             }
             if ($isKey !== true) {
-                if (!in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
+                if (in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
 %>
-            <td><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
+            <td><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
+<%
+                } elseif (in_array($schema->columnType($field), ['date', 'datetime', 'timestamp', 'time'])) {
+%>
+            <td><?= $this->Time->timeAgoInWords($<%= $singularVar %>-><%= $field %>) ?></td>
+<%
+                } elseif (in_array($schema->columnType($field), ['boolean'])) {
+%>
+            <td><?php
+                if ($<%= $singularVar %>-><%= $field %>) {
+                    echo "<span class='glyphicon glyphicon-ok'></span>";
+                } else {
+                    echo "<span class='glyphicon glyphicon-remove'></span>";
+                }
+            ?></td>
 <%
                 } else {
 %>
-            <td><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
+            <td><?= h($<%= $singularVar %>-><%= $field %>)?></td>
 <%
                 }
             }
@@ -55,21 +69,17 @@ $fields = collection($fields)
         $pk = '$' . $singularVar . '->' . $primaryKey[0];
 %>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', <%= $pk %>]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', <%= $pk %>]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', <%= $pk %>], ['confirm' => __('Are you sure you want to delete # {0}?', <%= $pk %>)]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', <%= $pk %>], ['class' => 'btn btn-default btn-xs']) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', <%= $pk %>], ['class' => 'btn btn-default btn-xs']) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', <%= $pk %>], ['confirm' => __('Are you sure you want to delete # {0}?', <%= $pk %>), 'class' => 'btn btn-xs btn-danger']) ?>
             </td>
         </tr>
 
     <?php endforeach; ?>
     </tbody>
     </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div>
+
+    <ul class="pagination">
+        <?= $this->Paginator->numbers() ?>
+    </ul>
 </div>
