@@ -123,9 +123,9 @@ foreach ($relations as $alias => $details):
             <tr>
                 <%- foreach ($details['fields'] as $field): %>
                     <% if (in_array($field, ['created', 'modified', 'updated'])): %>
-                        <td><?= $this->Time->timeAgoInWords($<%= $otherSingularVar %>-><%= $field %>) ?></td>
+                <td><?= $this->Time->timeAgoInWords($<%= $otherSingularVar %>-><%= $field %>) ?></td>
                     <% else: %>
-                        <td><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
+                <td><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
                     <% endif; %>
                 <%- endforeach; %>
 
