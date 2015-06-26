@@ -11,7 +11,7 @@ $fields = collection($fields)
     <?= $this->Html->link('New', ['action' => 'add'], ['class' => 'btn btn-primary']);?>
 </div>
 
-<div class="<%= $pluralVar %> index large-10 medium-9 columns">
+<div class="<%= $pluralVar %> index">
     <table cellpadding="0" cellspacing="0" class="table table-bordered table-hover table-striped">
     <thead>
         <tr>
