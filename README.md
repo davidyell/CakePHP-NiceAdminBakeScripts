@@ -79,6 +79,7 @@ bin/cake bake template --theme=NiceAdminBakeTheme --prefix=Admin Examples
 * Added handling for date, datetime and time using the Time helper
 * Added handling for boolean data using Bootstrap icons
 * Updated the View template to use Bootstrap panels
+* Spaced out the Table definition functions
 
 # License
 A custom cakephp/bake theme for generating customised cakephp code and templates. 

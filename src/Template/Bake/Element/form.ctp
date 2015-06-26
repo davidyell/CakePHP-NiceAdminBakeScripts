@@ -38,11 +38,11 @@ $fields = collection($fields)
                 } else {
                     if (empty($fieldData['null'])) {
 %>
-                        echo $this->Form->input('<%= $field %>'); <% // Required fields %>
+            echo $this->Form->input('<%= $field %>'); <% // Required fields %>
 <%
                     } else {
 %>
-                        echo $this->Form->input('<%= $field %>');
+            echo $this->Form->input('<%= $field %>');
 <%
                     }
 
