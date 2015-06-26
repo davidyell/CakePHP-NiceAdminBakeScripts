@@ -6,7 +6,7 @@ $fields = collection($fields)
         return $schema->columnType($field) !== 'binary';
     });
 %>
-<div class="<%= $pluralVar %> form large-10 medium-9 columns">
+<div class="<%= $pluralVar %> form">
     <?= $this->Form->create($<%= $singularVar %>) ?>
     <fieldset>
         <legend><?= __('<%= Inflector::humanize($action) %> <%= $singularHumanName %>') ?></legend>
@@ -38,7 +38,7 @@ $fields = collection($fields)
                 } else {
                     if (empty($fieldData['null'])) {
 %>
-                        echo $this->Form->input('<%= $field %>'); // Required fields
+                        echo $this->Form->input('<%= $field %>'); <% // Required fields %>
 <%
                     } else {
 %>
