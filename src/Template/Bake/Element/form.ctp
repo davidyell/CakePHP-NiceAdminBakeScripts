@@ -60,5 +60,6 @@ $fields = collection($fields)
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+    <?= $this->Html->link('Cancel', ['action' => 'index'], ['class' => 'btn btn-default'])?>
     <?= $this->Form->end() ?>
 </div>
