@@ -30,7 +30,7 @@ In your admin layout, you'll need to include the theme and javascript.
 ```php
 <?= $this->Html->css([
     '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
-    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css'
+    '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css'
 ]) ?>
 
 
