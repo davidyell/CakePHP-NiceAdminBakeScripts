@@ -7,6 +7,8 @@ $fields = collection($fields)
     })
     ->take(7);
 %>
+<h1><?= $this->request->controller?></h1>
+
 <div class="buttons">
     <?= $this->Html->link('New', ['action' => 'add'], ['class' => 'btn btn-primary']);?>
 </div>
