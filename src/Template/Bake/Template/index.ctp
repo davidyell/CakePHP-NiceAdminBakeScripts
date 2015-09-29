@@ -16,6 +16,7 @@ $fields = collection($fields)
 <div class="filter">
     <?php
     echo $this->Form->create(null, ['class' => 'form-inline']);
+    echo $this->Form->input('title');
     echo $this->Form->button('Filter',['type' => 'submit', 'class' => 'btn btn-success']);
     echo $this->Html->link('Reset', ['action' => 'index'], ['class' => 'btn btn-default']);
     echo $this->Form->end();
@@ -26,8 +27,17 @@ $fields = collection($fields)
     <table cellpadding="0" cellspacing="0" class="table table-hover table-striped">
     <thead>
         <tr>
-    <% foreach ($fields as $field): %>
-        <th><?= $this->Paginator->sort('<%= $field %>') ?></th>
+    <% foreach ($fields as $field):
+            $class = '';
+            if (in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
+                $class = ' class="number"';
+            } elseif (in_array($schema->columnType($field), ['date', 'datetime', 'timestamp', 'time'])) {
+                $class = ' class="time"';
+            } elseif (in_array($schema->columnType($field), ['boolean'])) {
+            $class = ' class="boolean"';
+            }
+            %>
+        <th<%= $class %>><?= $this->Paginator->sort('<%= $field %>') ?></th>
     <% endforeach; %>
         <th class="actions"><?= __('Actions') ?></th>
         </tr>
