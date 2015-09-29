@@ -3,7 +3,7 @@
     "description": "NiceAdminBakeTheme plugin for CakePHP",
     "type": "cakephp-plugin",
     "license": "GPL-3.0",
-    "keywords": ["cakephp", "cakephp3", "bake", "theme", "admin"],
+    "keywords": ["cakephp", "cakephp3", "bake", "theme", "admin", "bootstrap"],
     "authors": [
       {
         "name": "David Yell",
@@ -14,7 +14,13 @@
     ],
     "require": {
         "php": ">=5.4.16",
-        "cakephp/cakephp": "~3.0"
+        "cakephp/cakephp": "~3.0",
+        "friendsofcake/bootstrap-ui": "~0.3"
+    },
+    "suggest": {
+        "twbs/bootstrap": "Twitter Bootstrap front-end framework, for styles and layout.",
+        "friendsofcake/search": "Filtering for index templates to find things easier.",
+        "friendsofcake/crud": "Production ready scaffolding for controllers. Don't even bother writing code!"
     },
     "autoload": {
         "psr-4": {

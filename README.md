@@ -14,7 +14,7 @@ Plus I tend to use [Twitter Bootstrap](http://getbootstrap.com/) to make my admi
 leverage that front-end framework.
 
 ## Installation
-You can install this plugin into your CakePHP application using [composer](http://getcomposer.org).
+You should install this plugin into your CakePHP application using [composer](http://getcomposer.org).
 
 The recommended way to install composer packages is using, 
 
@@ -41,7 +41,8 @@ In your admin layout, you'll need to include the theme and javascript.
 ```
 
 ## Optional extras
-If you want to use Twitter Bootstrap for all your forms also you can install the [friendsofcake/bootstrap-UI](https://github.com/friendsofcake/bootstrap-ui).
+If you want to use Twitter Bootstrap for all your forms be sure to enable [friendsofcake/bootstrap-UI](https://github.com/friendsofcake/bootstrap-ui) 
+in your application and loading the helpers in your `src/View/AppView.php`. [Find out more about installing bootstrap-ui in their readme](https://github.com/friendsofcake/bootstrap-ui).
 
 This can be easily coupled with the [friendsofcake/crud plugin](https://github.com/friendsofcake/crud) to pretty much make
 an entire basic admin in around 5 minutes!
@@ -74,12 +75,14 @@ bin/cake bake template --theme=NiceAdminBakeTheme --prefix=Admin Examples
 * Removed the actions sidebar from all templates
 * Formatted tables with Bootstrap
 * Added a 'New' button to the top of tables
+* Add basic filter form to index templates
 * Tidied up the pagination
 * Made the Actions column links into buttons
 * Added handling for date, datetime and time using the Time helper
 * Added handling for boolean data using Bootstrap icons
 * Updated the View template to use Bootstrap panels
 * Spaced out the Table definition functions
+* Added classes to the columns in index templates
 
 # License
 A custom cakephp/bake theme for generating customised cakephp code and templates. 
