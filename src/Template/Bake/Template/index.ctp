@@ -13,8 +13,17 @@ $fields = collection($fields)
     <?= $this->Html->link('New', ['action' => 'add'], ['class' => 'btn btn-primary']);?>
 </div>
 
+<div class="filter">
+    <?php
+    echo $this->Form->create(null, ['class' => 'form-inline']);
+    echo $this->Form->button('Filter',['type' => 'submit', 'class' => 'btn btn-success']);
+    echo $this->Html->link('Reset', ['action' => 'index'], ['class' => 'btn btn-default']);
+    echo $this->Form->end();
+    ?>
+</div>
+
 <div class="<%= $pluralVar %> index">
-    <table cellpadding="0" cellspacing="0" class="table table-bordered table-hover table-striped">
+    <table cellpadding="0" cellspacing="0" class="table table-hover table-striped">
     <thead>
         <tr>
     <% foreach ($fields as $field): %>
@@ -44,15 +53,15 @@ $fields = collection($fields)
             if ($isKey !== true) {
                 if (in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
 %>
-            <td><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
+            <td class="number"><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
 <%
                 } elseif (in_array($schema->columnType($field), ['date', 'datetime', 'timestamp', 'time'])) {
 %>
-            <td><?= $this->Time->timeAgoInWords($<%= $singularVar %>-><%= $field %>) ?></td>
+            <td class="time"><?= $this->Time->timeAgoInWords($<%= $singularVar %>-><%= $field %>) ?></td>
 <%
                 } elseif (in_array($schema->columnType($field), ['boolean'])) {
 %>
-            <td><?php
+            <td class="boolean"><?php
                 if ($<%= $singularVar %>-><%= $field %>) {
                     echo "<span class='glyphicon glyphicon-ok'></span>";
                 } else {
