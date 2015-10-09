@@ -1,0 +1,44 @@
+/*
+Document   : _typography
+Created on : Mar 12, 2013, 3:00:25 PM
+Author     : david
+Description:
+    Style for text
+*/
+
+p.middle {
+  text-align: center;
+}
+
+footer {
+  p {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+$h1: 2.3em;
+h1 {
+  font-size: $h1;
+}
+
+h2 {
+  font-size: $h1 - .3em;
+}
+
+h3 {
+  font-size: $h1 - .7em;
+}
+
+h4 {
+  font-size: $h1 - 1.1em;
+}
+
+kbd {
+  padding: 0 2px;
+  border: 2px outset;
+}
+
+table tr td {
+  font-size: 13px;
+}

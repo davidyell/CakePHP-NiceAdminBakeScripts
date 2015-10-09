@@ -1,0 +1,43 @@
+/*
+Document   : _forms
+Created on : Mar 12, 2013, 3:15:49 PM
+Author     : david
+Description:
+    Partial for styling forms
+*/
+
+form {
+  fieldset {
+    margin-top: 20px;
+  }
+  .form-group.required label:after {
+    content: "*";
+  }
+  button[type=submit] {
+    margin-right: 10px;
+  }
+  select[multiple] {
+    height: 200px;
+  }
+}
+
+div.search {
+  $bgColor: #f4f4f4;
+  margin: 10px 0;
+  padding: 10px 15px;
+  background-color: $bgColor;
+  border: 1px solid darken($bgColor, 5%);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  form {
+    margin: 0;
+    &.form-inline {
+      .form-group {
+        margin-right: 10px;
+      }
+      .form-group label {
+        margin-right: 4px;
+      }
+    }
+  }
+}

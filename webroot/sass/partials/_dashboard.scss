@@ -1,0 +1,101 @@
+
+
+.panel {
+  margin: 10px 0;
+  background-color: $panelBgColor;
+  border: 1px solid darken($panelBgColor, 5%);
+  border-top-width: 3px;
+  border-top-style: solid;
+  border-top-color: darken($panelBgColor, 35%);
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  h3 {
+    margin: 0;
+    padding: 10px 0 10px 15px;
+    border-bottom: 1px solid darken($panelBgColor, 5%);
+    font-size: 18px;
+  }
+  & > p {
+    border-top: 1px solid darken($panelBgColor, 5%);
+    margin: 15px 0 10px 0;
+    padding: 10px 0 0 0;
+    text-align: center;
+  }
+  &.green {
+    border-top-color: #53af01;
+  }
+  &.purple {
+    border-top-color: #ad0188;
+  }
+  &.blue {
+    border-top-color: #1995d3;
+  }
+  &.orange {
+    border-top-color: #edb015;
+  }
+}
+
+.latestLogins {
+  ul {
+    list-style: none;
+    margin: 0 0 0 12px;
+    padding: 0;
+    li {
+      width: 125px;
+      float: left;
+      text-align: center;
+      margin: 10px;
+      img {
+        border-radius: 70px;
+        margin-bottom: 5px;
+      }
+      p, p.last-login {
+        margin: 0;
+      }
+      p.last-login {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.recent{
+  .item {
+    min-height: 73px;
+    position: relative;
+    padding: 5px 0 5px 10px;
+    border-bottom: 1px solid darken($panelBgColor, 5%);
+    img {
+      max-width: 56px;
+      max-height: 56px;
+      float: left;
+      margin-right: 10px;
+    }
+    span.label {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+    span.modified {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+    }
+    p {
+      width: 90%;
+      margin: 2px;
+    }
+    p.description, span.modified {
+      width: auto;
+      font-size: 12px;
+      color: darken($panelBgColor, 30%);
+    }
+  }
+  & > p {
+    margin: 0 0 10px 0;
+  }
+  & > div.attribute:nth-last-child(2) {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+}
