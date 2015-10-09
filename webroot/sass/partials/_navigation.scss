@@ -1,0 +1,127 @@
+
+/** Top nav **/
+nav.navbar {
+  background: $navbarBg none;
+  div.navbar-header {
+    width: 16.9%;
+    background-color: darken($navbarBg, 5%);
+    text-align: center;
+    padding: 0 15px;
+    margin-left: -15px;
+    a.navbar-brand {
+      color: #fff;
+      margin: 0;
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+      letter-spacing: 2px;
+      font-weight: bold;
+      span {
+        letter-spacing: normal;
+        position: relative;
+        margin-left: 5px;
+        z-index: 5;
+        color: darken($navbarBg, 5%);
+        text-shadow: none;
+      }
+      i.glyphicon {
+        position: absolute;
+        top: 11px;
+        left: 60px;
+        font-size: 38px;
+        z-index: 4;
+      }
+    }
+  }
+}
+
+#navbar ul li a {
+  color: $activeLink;
+  &:hover {
+    height: 50px;
+    background: darken($navbarBg, 7%) none no-repeat;
+    border-bottom: 4px solid darken($navbarBg, 10%);
+  }
+}
+#navbar ul li.active a {
+  background: darken($navbarBg, 12%) none no-repeat;
+}
+
+/** Sidebar nav **/
+div.sidebar {
+  background-color: $sidebarBg;
+  padding: 0;
+  top: 50px;
+}
+
+/**** Accordion ****/
+#accordion {
+  h3, a {
+    color: $inactiveLink;
+    &:hover {
+      color: $activeLink;
+    }
+  }
+  h3 {
+    height: 40px;
+    padding: 13px 0 0 10px;
+    margin: 0;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    cursor: pointer;
+    border-left: 3px solid $sidebarBg;
+    i {
+      margin-right: 7px;
+    }
+    .glyphicon.glyphicon-chevron-left {
+      float: right;
+      margin-right: 8px;
+    }
+    &.ui-state-active, &:hover {
+      background-color: darken($sidebarBg, 3%);
+      border-left: 3px solid darken($navbarBg, 5%);
+      color: $activeLink;
+    }
+    &.ui-state-active .glyphicon.glyphicon-chevron-left {
+      float: right;
+      margin-right: 8px;
+      -ms-transform: rotate(-90deg); /* IE 9 */
+      -webkit-transform: rotate(-90deg); /* Safari */
+      transform: rotate(-90deg);
+    }
+  }
+  div.ui-accordion-content {
+    background-color: lighten($sidebarBg, 3%);
+    ul {
+      margin: 0;
+      padding: 5px 0;
+      li, a {
+        height: 25px;
+        display: block;
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 14px;
+      }
+      a {
+        padding-left: 25px;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      li.active a {
+        color: $activeLink;
+      }
+    }
+  }
+}
+
+.user {
+  color: #fff;
+  padding: 20px 20px 0 20px;
+  .user-avatar {
+    border-radius: 40px;
+    float: left;
+    margin-right: 10px;
+  }
+  span.status.online {
+    color: #9ad31d;
+  }
+}

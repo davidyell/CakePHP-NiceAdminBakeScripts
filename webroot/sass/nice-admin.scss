@@ -1,0 +1,57 @@
+// Messages
+$good: #bfea83;
+$bad: #e88181;
+
+// Panels
+$panelBgColor: #f4f4f4;
+
+// Sidebar nav
+$sidebarBg: #222D32;
+$activeLink: #fff;
+$inactiveLink: #b8c7ce;
+$navbarBg: #00A65A;
+
+// Partials
+@import "partials/typography";
+@import "partials/forms";
+@import "partials/bootstrap-theme";
+@import "partials/dashboard";
+@import "partials/navigation";
+
+// Boolean glyphicons
+.glyphicon {
+  &.bool-false {
+    color: $bad;
+  }
+  &.bool-true {
+    color: darken($good, 25%);
+  }
+}
+
+td.actions {
+  white-space: nowrap;
+  a {
+    margin: 0 3px;
+  }
+}
+
+.index {
+  a.add-button {
+    margin: 16px 0 0 16px;
+  }
+  a.purge-button {
+    float: right;
+    margin: 18px 0 0 0;
+  }
+  a.deleted-button {
+    float: right;
+    margin: 18px 10px 0 0;
+  }
+}
+
+div.buttons {
+  margin-bottom: 10px;
+}
+div.form-group.required label:after {
+  content: " *";
+}

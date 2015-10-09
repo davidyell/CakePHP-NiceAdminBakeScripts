@@ -19,7 +19,7 @@ You should install this plugin into your CakePHP application using [composer](ht
 The recommended way to install composer packages is using, 
 
 ```bash
-composer require 'davidyell/nice-admin-bake-scripts:3.0.x-dev'
+composer require 'davidyell/nice-admin-bake-scripts:dev-master'
 ```
 
 ## Setup
@@ -69,6 +69,20 @@ bin/cake bake template --theme=NiceAdminBakeTheme Examples
 ```bash
 bin/cake bake template --theme=NiceAdminBakeTheme --prefix=Admin Examples
 ```
+
+## Example layout, elements and dashboard
+A basic admin layout, dashboard and navigation elements are included in the plugin. Which you can symlink, extend, or 
+copy into your project as you see fit.
+
+If you want to link to the styles. `echo $this->Html->css(['NiceAdminBakeTheme.nice-admin']);`
+
+However it's preferable to use a symlink.
+```bash
+$ bin/cake plugin assets symlink NiceAdminBakeTheme
+```
+
+:warning: These elements are optional, and do not provide a completed admin. You will need to customise 
+this to suit your needs.
 
 ## Changes to standard bake
 * Removed the `_serialize` from the controllers
