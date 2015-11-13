@@ -8,7 +8,7 @@
  *
  */
 
-namespace App\View\Helper;
+namespace NiceAdminBakeTheme\View\Helper;
 
 use Cake\View\Helper;
 
