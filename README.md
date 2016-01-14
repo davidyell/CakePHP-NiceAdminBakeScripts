@@ -23,7 +23,7 @@ composer require 'davidyell/nice-admin-bake-scripts:dev-master'
 ```
 
 ## Setup
-In your `src/config/bootstrap.php` you'll need to load the plugin with `Plugin::load('NiceAdminBakeTheme');`
+In your `config/bootstrap.php` you'll need to load the plugin with `Plugin::load('NiceAdminBakeTheme');`
 
 In your admin layout, you'll need to include the theme and javascript.
 

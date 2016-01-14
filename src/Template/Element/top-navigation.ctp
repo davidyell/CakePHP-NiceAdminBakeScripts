@@ -11,9 +11,15 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li <?php echo ($this->request->controller == 'Dashboards')? "class='active'" : '';?>><?php echo $this->Html->link('<i class="glyphicon glyphicon-home"></i> Dashboard', ['controller' => 'Dashboards', 'action' => 'home', 'plugin' => false], ['escape' => false]); ?></li>
-                <li <?php echo (isset($this->request->params['pass'][0]) && $this->request->params['pass'][0] == 'help')? "class='active'" : '';?>><?php echo $this->Html->link('<i class="glyphicon glyphicon-question-sign"></i> Help', ['controller' => 'Pages', 'action' => 'display', 'help', 'prefix' => 'admin', 'plugin' => false], ['escape' => false]); ?></li>
-                <li><?php echo $this->Html->link('<i class="glyphicon glyphicon-off"></i> Logout', ['controller' => 'Users', 'action' => 'logout', 'plugin' => false, 'prefix' => false], ['escape' => false]); ?></li>
+                <li <?php echo ($this->request->controller == 'Dashboards')? "class='active'" : '';?>>
+                    <?php echo $this->Html->link('<i class="glyphicon glyphicon-home"></i> Dashboard', ['controller' => 'Dashboards', 'action' => 'home', 'plugin' => false], ['escape' => false]); ?>
+                </li>
+                <li <?php echo (isset($this->request->params['pass'][0]) && $this->request->params['pass'][0] == 'help')? "class='active'" : '';?>>
+                    <?php echo $this->Html->link('<i class="glyphicon glyphicon-question-sign"></i> Help', ['controller' => 'Pages', 'action' => 'display', 'help', 'prefix' => 'admin', 'plugin' => false], ['escape' => false]); ?>
+                </li>
+                <li>
+                    <?php echo $this->Html->link('<i class="glyphicon glyphicon-off"></i> Logout', ['controller' => 'Users', 'action' => 'logout', 'plugin' => false, 'prefix' => false], ['escape' => false]); ?>
+                </li>
             </ul>
         </div>
     </div>
