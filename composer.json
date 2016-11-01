@@ -26,8 +26,5 @@
         "psr-4": {
             "NiceAdminBakeTheme\\": "src"
         }
-    },
-    "extra": {
-        "installer-name": "NiceAdminBakeTheme"
     }
 }
