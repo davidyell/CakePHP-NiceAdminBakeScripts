@@ -15,7 +15,7 @@
     "require": {
         "php": ">=5.4.16",
         "cakephp/cakephp": "~3.0",
-        "friendsofcake/bootstrap-ui": "~0.3"
+        "friendsofcake/bootstrap-ui": "~1.0"
     },
     "suggest": {
         "twbs/bootstrap": "Twitter Bootstrap front-end framework, for styles and layout.",
