@@ -4,7 +4,7 @@ using the [CakePHP Bake](https://github.com/cakephp/bake) plugin.
 
 ## Requirements
 * CakePHP 3
-* PHP 5.4.16+
+* PHP 5.6+
 
 ## What is it?
 This is a theme for the [CakePHP/Bake plugin](https://github.com/cakephp/bake) which will customise the code which is 
@@ -97,21 +97,8 @@ this to suit your needs.
 * Updated the View template to use Bootstrap panels
 * Spaced out the Table definition functions
 * Added classes to the columns in index templates
+* Lists are now ordered
+* Index pagination is done with a query
 
 # License
-A custom cakephp/bake theme for generating customised cakephp code and templates. 
-
-Copyright (C) 2015  David Yell
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+[See license.md](license.md)
