@@ -19,23 +19,24 @@ You should install this plugin into your CakePHP application using [composer](ht
 The recommended way to install composer packages is using, 
 
 ```bash
-composer require 'davidyell/nice-admin-bake-scripts:dev-master'
+composer require davidyell/nice-admin-bake-scripts
 ```
 
 ## Setup
 In your `config/bootstrap.php` you'll need to load the plugin with `Plugin::load('NiceAdminBakeTheme');`
 
-In your admin layout, you'll need to include the theme and javascript.
+In your admin layout, you'll need to include the theme and javascript if you're using [Twitter Bootstrap](http://getbootstrap.com/). This snippet also includes [jQuery](http://jquery.com/), so if you've already loaded that, please remove that line.
 
 ```php
+// In the head of your layout
 <?= $this->Html->css([
     '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
     '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css'
 ]) ?>
 
-
+// Before your script block
 <?= $this->Html->script([
-    '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+    '//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js',
     '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'
 ]);?>
 ```
@@ -47,9 +48,13 @@ in your application and loading the helpers in your `src/View/AppView.php`. [Fin
 This can be easily coupled with the [friendsofcake/crud plugin](https://github.com/friendsofcake/crud) to pretty much make
 an entire basic admin in around 5 minutes!
 
-A basic stylesheet is included to fix some minor things. You can add it to your layout 
-using `$this->Html->style('NiceAdminBakeTheme.nice-admin')`. However it's much better to symlink the stylesheet into your 
-own `webroot/css` and include it from there.
+A basic stylesheet is included to fix some minor things. You can symlink the stylesheet into your own `webroot/css` and include it from there, using
+
+```bash
+$ bin/cake plugin assets symlink NiceAdminBakeTheme
+```
+
+Of if you want to create the link manually `cd webroot/css && ln -s ../../vendor/davidyell/nice-admin-bake-scripts/webroot/css/nice-admin.css`.
 
 ## Baking
 The theme should be available when you are baking. You can check this by just running a bake command with `-h` and 
@@ -74,7 +79,7 @@ bin/cake bake template --theme=NiceAdminBakeTheme --prefix=Admin Examples
 A basic admin layout, dashboard and navigation elements are included in the plugin. Which you can symlink, extend, or 
 copy into your project as you see fit.
 
-If you want to link to the styles. `echo $this->Html->css(['NiceAdminBakeTheme.nice-admin']);`
+If you want to link to the styles. `echo $this->Html->css(['nice-admin']);`
 
 However it's preferable to use a symlink.
 ```bash
