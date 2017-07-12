@@ -101,4 +101,4 @@ this to suit your needs.
 * Index pagination is done with a query
 
 # License
-[See license.md](license.md)
+[See license.md](LICENSE.md)
