@@ -100,7 +100,5 @@ $fields = collection($fields)
     </tbody>
     </table>
 
-    <ul class="pagination">
-        <?= $this->Paginator->numbers() ?>
-    </ul>
+    <?= $this->Paginator->numbers() ?>
 </div>
