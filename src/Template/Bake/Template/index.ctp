@@ -53,7 +53,7 @@ $fields = collection($fields)
                         $isKey = true;
 %>
             <td>
-                <?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?>
+                <?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>->get('<%= $details['property'] %>')->get('<%= $details['displayField'] %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>->get('<%= $details['property'] %>')->get('<%= $details['primaryKey'][0] %>')]) : '' ?>
             </td>
 <%
                         break;
@@ -63,16 +63,16 @@ $fields = collection($fields)
             if ($isKey !== true) {
                 if (in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
 %>
-            <td class="number"><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
+            <td class="number"><?= $this->Number->format($<%= $singularVar %>->get('<%= $field %>')) ?></td>
 <%
                 } elseif (in_array($schema->columnType($field), ['date', 'datetime', 'timestamp', 'time'])) {
 %>
-            <td class="time"><?= $this->Time->timeAgoInWords($<%= $singularVar %>-><%= $field %>) ?></td>
+            <td class="time"><?= $this->Time->timeAgoInWords($<%= $singularVar %>->get('<%= $field %>')) ?></td>
 <%
                 } elseif (in_array($schema->columnType($field), ['boolean'])) {
 %>
             <td class="boolean"><?php
-                if ($<%= $singularVar %>-><%= $field %>) {
+                if ($<%= $singularVar %>->get('<%= $field %>')) {
                     echo "<span class='glyphicon glyphicon-ok'></span>";
                 } else {
                     echo "<span class='glyphicon glyphicon-remove'></span>";
@@ -81,7 +81,7 @@ $fields = collection($fields)
 <%
                 } else {
 %>
-            <td><?= h($<%= $singularVar %>-><%= $field %>)?></td>
+            <td><?= h($<%= $singularVar %>->get('<%= $field %>'))?></td>
 <%
                 }
             }

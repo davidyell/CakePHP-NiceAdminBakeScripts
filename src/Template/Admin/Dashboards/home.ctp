@@ -4,7 +4,7 @@
     <div class="search">
         <?php
         echo $this->Form->create(null, ['class' => 'form-inline', 'url' => ['controller' => 'Examples', 'action' => 'index']]);
-        echo $this->Form->input('example_id');
+        echo $this->Form->control('example_id');
         echo $this->Form->button(__('Search examples'), ['class' => 'btn btn-sm btn-primary']);
         echo $this->Form->end();
         ?>
@@ -56,7 +56,7 @@
                         ?><li>
                         <?= $this->Gravatar->avatar($user->email, 70);?>
                         <p><?= $user->get('FullName');?></p>
-                        <p class="last-login"><?= $this->Time->timeAgoInWords($user->last_login);?></p>
+                        <p class="last-login"><?= $this->Time->timeAgoInWords($user->get('last_login'));?></p>
                         </li><?php
                     }
                     ?>

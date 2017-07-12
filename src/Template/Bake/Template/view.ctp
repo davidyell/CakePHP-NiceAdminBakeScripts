@@ -39,7 +39,7 @@ $groupedFields += ['number' => [], 'string' => [], 'boolean' => [], 'date' => []
 $pk = "\$$singularVar->{$primaryKey[0]}";
 %>
 <div class="<%= $pluralVar %> view">
-    <h2><?= h($<%= $singularVar %>-><%= $displayField %>) ?></h2>
+    <h2><?= h($<%= $singularVar %>->get('<%= $displayField %>')) ?></h2>
     <div class="non-text">
 <% if ($groupedFields['string']) : %>
         <div class="strings">
@@ -49,12 +49,12 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
 %>
             <div class="panel panel-default">
                 <div class="panel-heading"><h3 class="panel-title"><?= __('<%= Inflector::humanize($details['property']) %>') ?></h3></div>
-                <div class="panel-body"><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></div>
+                <div class="panel-body"><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>->get('<%= $details['property'] %>')->get('<%= $details['displayField'] %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>->get('<%= $details['property'] %>')->get('<%= $details['primaryKey'][0] %>')]) : '' ?></div>
             </div>
 <% else : %>
             <div class="panel panel-default">
                 <div class="panel-heading"><h3 class="panel-title"><?= __('<%= Inflector::humanize($field) %>') ?></h3></div>
-                <div class="panel-body"><?= h($<%= $singularVar %>-><%= $field %>) ?></div>
+                <div class="panel-body"><?= h($<%= $singularVar %>->get('<%= $field %>')) ?></div>
             </div>
 <% endif; %>
 <% endforeach; %>
@@ -65,7 +65,7 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
 <% foreach ($groupedFields['number'] as $field) : %>
             <div class="panel panel-default">
                 <div class="panel-heading"><h3 class="panel-title"><?= __('<%= Inflector::humanize($field) %>') ?></h3></div>
-                <div class="panel-body"><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></div>
+                <div class="panel-body"><?= $this->Number->format($<%= $singularVar %>->get('<%= $field %>')) ?></div>
             </div>
 <% endforeach; %>
         </div>
@@ -75,7 +75,7 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
 <% foreach ($groupedFields['date'] as $field) : %>
             <div class="panel panel-default">
                 <div class="panel-heading"><h3 class="panel-title"><%= "<%= __('" . Inflector::humanize($field) . "') %>" %></h3></div>
-                <div class="panel-body"><?= $this->Time->timeAgoInWords($<%= $singularVar %>-><%= $field %>) ?></div>
+                <div class="panel-body"><?= $this->Time->timeAgoInWords($<%= $singularVar %>->get('<%= $field %>')) ?></div>
             </div>
 <% endforeach; %>
         </div>
@@ -85,7 +85,7 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
 <% foreach ($groupedFields['boolean'] as $field) : %>
             <div class="panel panel-default">
                 <div class="panel-heading"><h3 class="panel-title"><?= __('<%= Inflector::humanize($field) %>') ?></h3></div>
-                <div class="panel-body"><?= $<%= $singularVar %>-><%= $field %> ? __('Yes') : __('No'); ?></div>
+                <div class="panel-body"><?= $<%= $singularVar %>->get('<%= $field %>') ? __('Yes') : __('No'); ?></div>
             </div>
 <% endforeach; %>
         </div>
@@ -96,7 +96,7 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
 <% foreach ($groupedFields['text'] as $field) : %>
         <div class="panel panel-default">
             <div class="panel-heading"><h3 class="panel-title"><?= __('<%= Inflector::humanize($field) %>') ?></h3></div>
-            <div class="panel-body"><?= $this->Text->autoParagraph(h($<%= $singularVar %>-><%= $field %>)) ?></div>
+            <div class="panel-body"><?= $this->Text->autoParagraph(h($<%= $singularVar %>->get('<%= $field %>'))) ?></div>
         </div>
 <% endforeach; %>
     </div>
@@ -111,7 +111,7 @@ foreach ($relations as $alias => $details):
 <div class="related row">
     <div class="col-md-12">
     <h4 class="subheader"><?= __('Related <%= $otherPluralHumanName %>') ?></h4>
-    <?php if (!empty($<%= $singularVar %>-><%= $details['property'] %>)): ?>
+    <?php if (!empty($<%= $singularVar %>->get('<%= $details['property'] %>'))): ?>
         <table cellpadding="0" cellspacing="0" class="table table-condensed table-striped">
             <tr>
                 <% foreach ($details['fields'] as $field): %>
@@ -119,13 +119,13 @@ foreach ($relations as $alias => $details):
                 <% endforeach; %>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($<%= $singularVar %>-><%= $details['property'] %> as $<%= $otherSingularVar %>): ?>
+            <?php foreach ($<%= $singularVar %>->get('<%= $details['property'] %>') as $<%= $otherSingularVar %>): ?>
             <tr>
                 <%- foreach ($details['fields'] as $field): %>
                     <% if (in_array($field, ['created', 'modified', 'updated'])): %>
-                <td><?= $this->Time->timeAgoInWords($<%= $otherSingularVar %>-><%= $field %>) ?></td>
+                <td><?= $this->Time->timeAgoInWords($<%= $otherSingularVar %>->get('<%= $field %>')) ?></td>
                     <% else: %>
-                <td><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
+                <td><?= h($<%= $otherSingularVar %>->get('<%= $field %>')) ?></td>
                     <% endif; %>
                 <%- endforeach; %>
 

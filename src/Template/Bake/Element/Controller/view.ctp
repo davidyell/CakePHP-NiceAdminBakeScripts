@@ -1,17 +1,4 @@
 <%
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @since         0.1.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
 $allAssociations = array_merge(
     $this->Bake->aliasExtractor($modelObj, 'BelongsTo'),
     $this->Bake->aliasExtractor($modelObj, 'BelongsToMany'),
@@ -23,16 +10,23 @@ $allAssociations = array_merge(
     /**
      * View method
      *
-     * @param string|null $id <%= $singularHumanName %> id.
+     * @param string|int $id <%= $singularHumanName %> id.
      *
      * @return void
      *
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When there is no record.
+     * @throws \Cake\Datasource\Exception\InvalidPrimaryKeyException When $primaryKey has an
+     *      incorrect number of elements.
      */
-    public function view($id = null)
+    public function view($id)
     {
         $<%= $singularName%> = $this-><%= $currentModelName %>->get($id, [
-            'contain' => [<%= $this->Bake->stringifyList($allAssociations, ['indent' => false]) %>]
+            'contain' => [
+                <% foreach ($allAssociations as $association): %>
+'<% echo $association %>',
+                <% endforeach; %>
+]
         ]);
+
         $this->set('<%= $singularName %>', $<%= $singularName %>);
     }

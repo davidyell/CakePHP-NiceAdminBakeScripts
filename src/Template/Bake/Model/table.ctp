@@ -123,7 +123,7 @@ foreach ($validation as $field => $rules):
                     $field
                 );
                 $validationMethods[] = sprintf(
-                    "->notEmpty('%s')",
+                    "->notBlank('%s')",
                     $field
                 );
             endif;
