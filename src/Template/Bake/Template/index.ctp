@@ -16,7 +16,7 @@ $fields = collection($fields)
 <div class="filter">
     <?php
     echo $this->Form->create(null, ['class' => 'form-inline']);
-    echo $this->Form->input('title');
+    echo $this->Form->control('title');
     echo $this->Form->button('Filter',['type' => 'submit', 'class' => 'btn btn-success']);
     echo $this->Html->link('Reset', ['action' => 'index'], ['class' => 'btn btn-default']);
     echo $this->Form->end();

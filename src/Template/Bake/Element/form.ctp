@@ -20,11 +20,11 @@ $fields = collection($fields)
                 $fieldData = $schema->column($field);
                 if (!empty($fieldData['null'])) {
 %>
-        echo $this->Form->input('<%= $field %>', ['options' => $<%= $keyFields[$field] %>, 'empty' => true]);
+        echo $this->Form->control('<%= $field %>', ['options' => $<%= $keyFields[$field] %>, 'empty' => true]);
 <%
                 } else {
 %>
-        echo $this->Form->input('<%= $field %>', ['options' => $<%= $keyFields[$field] %>]);
+        echo $this->Form->control('<%= $field %>', ['options' => $<%= $keyFields[$field] %>]);
 <%
                 }
                 continue;
@@ -33,16 +33,16 @@ $fields = collection($fields)
                 $fieldData = $schema->column($field);
                 if (($fieldData['type'] === 'date') && (!empty($fieldData['null']))) {
 %>
-        echo $this->Form->input('<%= $field %>', ['empty' => true, 'default' => '']);
+        echo $this->Form->control('<%= $field %>', ['empty' => true, 'default' => '']);
 <%
                 } else {
                     if (empty($fieldData['null'])) {
 %>
-        echo $this->Form->input('<%= $field %>'); <% // Required fields %>
+        echo $this->Form->control('<%= $field %>'); <% // Required fields %>
 <%
                     } else {
 %>
-        echo $this->Form->input('<%= $field %>');
+        echo $this->Form->control('<%= $field %>');
 <%
                     }
 
@@ -52,7 +52,7 @@ $fields = collection($fields)
         if (!empty($associations['BelongsToMany'])) {
             foreach ($associations['BelongsToMany'] as $assocName => $assocData) {
 %>
-        echo $this->Form->input('<%= $assocData['property'] %>._ids', ['options' => $<%= $assocData['variable'] %>]);
+        echo $this->Form->control('<%= $assocData['property'] %>._ids', ['options' => $<%= $assocData['variable'] %>]);
 <%
             }
         }
