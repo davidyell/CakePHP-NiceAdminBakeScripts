@@ -10,7 +10,7 @@ $fields = collection($fields)
 <h1><?= $this->request->controller?></h1>
 
 <div class="buttons">
-    <?= $this->Html->link('<span class=\'glyphicon glyphicon-plus\'></span> Add new', ['action' => 'add'], ['class' => 'btn btn-primary']);?>
+    <?= $this->Html->link('<span class=\'glyphicon glyphicon-plus\'></span> Add new', ['action' => 'add'], ['class' => 'btn btn-primary', 'escape' => false]);?>
 </div>
 
 <div class="search">
