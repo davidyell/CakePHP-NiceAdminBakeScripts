@@ -73,9 +73,9 @@ $fields = collection($fields)
 %>
             <td class="boolean"><?php
                 if ($<%= $singularVar %>->get('<%= $field %>')) {
-                    echo "<span class='glyphicon glyphicon-ok'></span>";
+                    echo "<span class='glyphicon glyphicon-ok bool-true'></span>";
                 } else {
-                    echo "<span class='glyphicon glyphicon-remove'></span>";
+                    echo "<span class='glyphicon glyphicon-remove bool-false'></span>";
                 }
             ?></td>
 <%
