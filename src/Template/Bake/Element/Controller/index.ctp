@@ -11,9 +11,7 @@
         $query->contain([<%= $this->Bake->stringifyList($belongsTo, ['indent' => false]) %>]);
 <% endif; %>
 
-        if (empty($this->request->getQuery('sort'))) {
-            $query->order([$this-><%= $currentModelName %>->aliasField('modified') => 'desc']);
-        }
-
-        $this->set('<%= $pluralName %>', $this->paginate($query));
+        $this->set('<%= $pluralName %>', $this->paginate($query, [
+            'order' => [$this-><%= $currentModelName %>->aliasField('modified') => 'desc']
+        ));
     }
