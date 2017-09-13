@@ -13,5 +13,5 @@
 
         $this->set('<%= $pluralName %>', $this->paginate($query, [
             'order' => [$this-><%= $currentModelName %>->aliasField('modified') => 'desc']
-        ));
+        ]));
     }
