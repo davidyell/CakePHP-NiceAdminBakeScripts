@@ -3,11 +3,11 @@ use Cake\Utility\Inflector;
 
 $fields = collection($fields)
     ->filter(function($field) use ($schema) {
-        return !in_array($schema->columnType($field), ['binary', 'text']);
+        return !in_array($schema->getColumnType($field), ['binary', 'text']);
     })
     ->take(7);
 %>
-<h1><?= $this->request->controller?></h1>
+<h1><?= $this->getRequest()->getParam('controller')?></h1>
 
 <div class="buttons">
     <?= $this->Html->link('<span class=\'glyphicon glyphicon-plus\'></span> Add new', ['action' => 'add'], ['class' => 'btn btn-primary', 'escape' => false]);?>
@@ -29,11 +29,11 @@ $fields = collection($fields)
         <tr>
     <% foreach ($fields as $field):
             $class = '';
-            if (in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
+            if (in_array($schema->getColumnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
                 $class = ' class="number"';
-            } elseif (in_array($schema->columnType($field), ['date', 'datetime', 'timestamp', 'time'])) {
+            } elseif (in_array($schema->getColumnType($field), ['date', 'datetime', 'timestamp', 'time'])) {
                 $class = ' class="time"';
-            } elseif (in_array($schema->columnType($field), ['boolean'])) {
+            } elseif (in_array($schema->getColumnType($field), ['boolean'])) {
             $class = ' class="boolean"';
             }
             %>
@@ -61,15 +61,15 @@ $fields = collection($fields)
                 }
             }
             if ($isKey !== true) {
-                if (in_array($schema->columnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
+                if (in_array($schema->getColumnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
 %>
             <td class="number"><?= $this->Number->format($<%= $singularVar %>->get('<%= $field %>')) ?></td>
 <%
-                } elseif (in_array($schema->columnType($field), ['date', 'datetime', 'timestamp', 'time'])) {
+                } elseif (in_array($schema->getColumnType($field), ['date', 'datetime', 'timestamp', 'time'])) {
 %>
             <td class="time"><?= $this->Time->timeAgoInWords($<%= $singularVar %>->get('<%= $field %>')) ?></td>
 <%
-                } elseif (in_array($schema->columnType($field), ['boolean'])) {
+                } elseif (in_array($schema->getColumnType($field), ['boolean'])) {
 %>
             <td class="boolean"><?php
                 if ($<%= $singularVar %>->get('<%= $field %>')) {

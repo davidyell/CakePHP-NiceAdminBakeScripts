@@ -3,7 +3,7 @@ use Cake\Utility\Inflector;
 
 $fields = collection($fields)
     ->filter(function($field) use ($schema) {
-        return $schema->columnType($field) !== 'binary';
+        return $schema->getColumnType($field) !== 'binary';
     });
 %>
 <div class="<%= $pluralVar %> form">
@@ -17,7 +17,7 @@ $fields = collection($fields)
                 continue;
             }
             if (isset($keyFields[$field])) {
-                $fieldData = $schema->column($field);
+                $fieldData = $schema->getColumn($field);
                 if (!empty($fieldData['null'])) {
 %>
         echo $this->Form->control('<%= $field %>', ['options' => $<%= $keyFields[$field] %>, 'empty' => true]);
@@ -30,7 +30,7 @@ $fields = collection($fields)
                 continue;
             }
             if (!in_array($field, ['created', 'modified', 'updated'])) {
-                $fieldData = $schema->column($field);
+                $fieldData = $schema->getColumn($field);
                 if (($fieldData['type'] === 'date') && (!empty($fieldData['null']))) {
 %>
         echo $this->Form->control('<%= $field %>', ['empty' => true, 'default' => '']);

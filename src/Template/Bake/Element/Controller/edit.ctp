@@ -28,7 +28,7 @@ $compact = ["'" . $singularName . "'"];
         ]);
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $<%= $singularName %> = $this-><%= $currentModelName %>->patchEntity($<%= $singularName %>, $this->request->getData());
+            $<%= $singularName %> = $this-><%= $currentModelName %>->patchEntity($<%= $singularName %>, $this->getRequest()->getData());
             if ($this-><%= $currentModelName; %>->save($<%= $singularName %>)) {
                 $this->Flash->success(__('The <%= strtolower($singularHumanName) %> has been saved.'));
 
